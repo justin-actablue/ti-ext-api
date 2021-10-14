@@ -7,7 +7,9 @@ use League\Fractal\TransformerAbstract;
 
 class MenuOptionTransformer extends TransformerAbstract
 {
-    protected $defaultIncludes = [
+
+    protected $availableIncludes = [
+        'locations',
         'option_values',
     ];
 
@@ -33,6 +35,15 @@ class MenuOptionTransformer extends TransformerAbstract
             $menuOption->option_values,
             new MenuOptionValueTransformer,
             'option_values'
+        );
+    }
+
+    public function includeLocations(Menu_options_model $menuOption)
+    {
+        return $this->collection(
+            $menuOption->locations,
+            new LocationTransformer,
+            'locations'
         );
     }
 }

@@ -11,6 +11,10 @@ class MenuItemOptionTransformer extends TransformerAbstract
         'menu_option_values',
     ];
 
+    protected $availableIncludes = [
+        'locations',
+    ];
+    
     public function transform(Menu_item_options_model $menuItemOption)
     {
         return array_merge($menuItemOption->toArray(), [
@@ -34,6 +38,15 @@ class MenuItemOptionTransformer extends TransformerAbstract
             $menuItemOption->menu_option_values,
             new MenuItemOptionValueTransformer,
             'menu_option_values'
+        );
+    }
+
+    public function includeLocations(Menu_item_options_model $menuItemOption)
+    {
+        return $this->collection(
+            $menuItemOption->locations,
+            new LocationTransformer,
+            'locations'
         );
     }
 }
