@@ -9,7 +9,10 @@ class MenuRepository extends AbstractRepository
 {
     protected $modelClass = Menus_model::class;
 
-    protected $fillable = ['menu_options'];
+    protected $fillable = ['menu_name', 'menu_description', 'menu_price', 'stock_qty', 
+        'minimum_qty', 'subtract_stock', 'menu_status', 'menu_priority', 
+        'order_restriction', 'menu_options', 'categories', 'locations', 
+        'media'];
 
     protected function extendQuery($query)
     {
