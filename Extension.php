@@ -153,6 +153,16 @@ class Extension extends BaseExtension
                     'destroy:admin',
                 ],
             ],
+            'payments' =>[
+                'controller' => \Igniter\Api\ApiResources\Payments::class,
+                'name' => 'Payments',
+                'description' => 'An API resource for Payments',
+                'actions' => [
+                    'index:admin', 'show:admin',
+                    'store:admin', 'update:admin',
+                    'destroy:admin',
+                ],
+            ],
             'reservations' => [
                 'controller' => \Igniter\Api\ApiResources\Reservations::class,
                 'name' => 'Reservations',
@@ -249,7 +259,7 @@ class Extension extends BaseExtension
     protected function configureRateLimiting()
     {
         RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
+            return Limit::perMinute(300)->by(optional($request->user())->id ?: $request->ip());
         });
     }
 }
