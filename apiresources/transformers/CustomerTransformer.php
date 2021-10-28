@@ -11,6 +11,7 @@ class CustomerTransformer extends TransformerAbstract
         'addresses',
         'orders',
         'reservations',
+        'socialiteproviders'
     ];
 
     public function transform(Customers_model $customer)
@@ -31,5 +32,10 @@ class CustomerTransformer extends TransformerAbstract
     public function includeReservations(Customers_model $customer)
     {
         return $this->collection($customer->reservations, new ReservationTransformer, 'reservations');
+    }
+
+    public function includeSocialiteproviders(Customers_model $customer)
+    {
+        return $this->collection($customer->socialiteproviders, new SocialiteProviderTransformer, 'socialiteproviders');
     }
 }
