@@ -11,6 +11,7 @@
   },
   "homepage": "https://tastyigniter.com/marketplace/item/igniter-api",
   "require": {
-    "igniter.local": "*"
+    "igniter.local": "*",
+    "cupnoodles.taxclasses": "*"
   }
 }

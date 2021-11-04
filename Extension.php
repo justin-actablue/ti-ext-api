@@ -187,7 +187,22 @@ class Extension extends BaseExtension
                 'controller' => \Igniter\Api\ApiResources\Tables::class,
                 'name' => 'Tables',
                 'description' => 'An API resource for tables',
+                'actions' => [
+                    'index:admin', 'show:admin',
+                    'store:admin', 'update:admin',
+                    'destroy:admin',
+                ],
                 'authorization' => [
+                    'index:admin', 'show:admin',
+                    'store:admin', 'update:admin',
+                    'destroy:admin',
+                ],
+            ],
+            'taxes' => [
+                'controller' => \Igniter\Api\ApiResources\TaxClasses::class,
+                'name' => 'TaxClasses',
+                'description' => 'An API resource for tax classes',
+                'actions' => [
                     'index:admin', 'show:admin',
                     'store:admin', 'update:admin',
                     'destroy:admin',

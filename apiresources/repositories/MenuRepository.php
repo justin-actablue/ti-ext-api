@@ -12,7 +12,7 @@ class MenuRepository extends AbstractRepository
     protected $fillable = ['menu_name', 'menu_description', 'menu_price', 'stock_qty', 
         'minimum_qty', 'subtract_stock', 'menu_status', 'menu_priority', 
         'order_restriction', 'menu_options', 'categories', 'locations', 
-        'media'];
+        'media', 'tax_class_id'];
 
     protected function extendQuery($query)
     {
